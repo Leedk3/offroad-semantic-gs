@@ -1,0 +1,10 @@
+--- a/cuda_rasterizer/forward.cu
++++ b/cuda_rasterizer/forward.cu
+@@ -367,6 +367,7 @@
+ 
+ 			// compute depth
+ 			float depth = (s.x * Tw.x + s.y * Tw.y) + Tw.z;
++			depth = (rho3d <= rho2d) ? depth : Tw.z;
+ 			// if a point is too small, its depth is not reliable?
+ 			// depth = (rho3d <= rho2d) ? depth : Tw.z 
+ 			if (depth < near_n) continue;

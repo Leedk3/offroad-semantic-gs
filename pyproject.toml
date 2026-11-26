@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "offroad-semantic-gs"
+version = "0.1.0"
+description = "Source-linked depth and semantic Gaussian mapping with explicit render support"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Daegyu Lee"}]
+dependencies = ["numpy>=1.26,<3", "scipy>=1.13,<2", "torch>=2.8,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.2,<9"]
+
+[project.scripts]
+offroad-gs = "semantic_gs.cli:main"
+
+[project.urls]
+Repository = "https://github.com/Leedk3/offroad-semantic-gs"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.txt", "licenses/Gaussian-Splatting.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["native: requires the pinned, patched CUDA renderer"]

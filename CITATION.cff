@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, cite this software. A paper citation will be added when available."
+type: software
+title: "Offroad Semantic GS"
+version: 0.1.0
+authors:
+  - family-names: Lee
+    given-names: Daegyu
+repository-code: "https://github.com/Leedk3/offroad-semantic-gs"
+license: MIT
+abstract: "Source-linked depth-guided Gaussian map construction and semantic readout with explicit render support. Optional native rendering has separate license terms."

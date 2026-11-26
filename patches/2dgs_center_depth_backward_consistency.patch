@@ -1,0 +1,18 @@
+--- a/cuda_rasterizer/backward.cu
++++ b/cuda_rasterizer/backward.cu
+@@ -299,6 +299,7 @@
+ 			float c_d = (s.x * Tw.x + s.y * Tw.y) + Tw.z; // Tw * [u,v,1]
+ 			// if a point is too small, its depth is not reliable?
+ 			// c_d = (rho3d <= rho2d) ? c_d : Tw.z; 
++			c_d = (rho3d <= rho2d) ? c_d : Tw.z;
+ 			if (c_d < near_n) continue;
+ 			
+ 			float4 nor_o = collected_normal_opacity[j];
+@@ -435,7 +436,5 @@
+ 				atomicAdd(&dL_dmean2D[global_id].y, dL_dG * dG_ddely); // not scaled
+ 				// // Propagate the gradients of depth
+-				atomicAdd(&dL_dtransMat[global_id * 9 + 6],  s.x * dL_dz);
+-				atomicAdd(&dL_dtransMat[global_id * 9 + 7],  s.y * dL_dz);
+ 				atomicAdd(&dL_dtransMat[global_id * 9 + 8],  dL_dz);
+ 			}
+ 

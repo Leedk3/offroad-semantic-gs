@@ -1,0 +1,44 @@
+{
+  "purpose": "Archived project numeric results, not rerun by the synthetic demo.",
+  "construction": {
+    "file": "construction.csv",
+    "recording": "RELLIS-3D00001",
+    "queries": 121,
+    "interleaved_timing_repetitions": 3,
+    "source_window": 5,
+    "identical_query_outputs": true,
+    "same_final_archive_Gaussians": 321157,
+    "component": "Source geometry and image-footprint construction including cache ingestion. Neural inference, tracking and rendering excluded.",
+    "arms": {
+      "global_recompute": "Build full available source prefix before selecting; no camera geometry cache.",
+      "global_cached": "Build full available prefix before selecting; immutable camera geometry cache.",
+      "active_recompute": "Select requested five sources before construction; no camera geometry cache.",
+      "active_cached": "Select requested five sources before construction; immutable camera geometry cache."
+    },
+    "limitations": "One previously observed recording; sharedGPU; not end-to-end timing, independent-scene timing, memory comparison or a stronger footprint cache."
+  },
+  "fusion": {
+    "file": "fusion.csv",
+    "recordings": [
+      "RELLIS-3D00003",
+      "RELLIS-3D00004"
+    ],
+    "queries_per_recording": 16,
+    "head_initializations": [
+      0,
+      1,
+      2
+    ],
+    "source_window": 4,
+    "conditions": "Fixed depth, fixed perception and supplied reference poses. All map-fusion rules share geometry and visibility.",
+    "domains": {
+      "full": "All reference image pixels, unknown predictions counted explicitly.",
+      "common": "Same supported reference pixels for all compared readouts."
+    },
+    "unit": "mIoU, coverage, pixel_accuracy are fractions in CSV.",
+    "Bayes_Eq1": "Adaptation of the SemanticFusion Bayesian update equation under fixed Gaussian correspondence; not complete system reproduction.",
+    "diagnostic": "Native minusBayesian commonmIoU >=5pp perrecord; all3pairedseedchangespositive perrecord; not below singleframecommonmIoU. Not passed.",
+    "limitations": "Previously observed recordings; not independentgeography/foundation-pretraining confirmation. Single-frame commonmIoU exceeds nativeGS on both recordings."
+  },
+  "new_evaluation_for_this_release": false
+}

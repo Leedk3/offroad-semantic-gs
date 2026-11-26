@@ -1,0 +1,6 @@
+include README.md LICENSE THIRD_PARTY_NOTICES.txt CITATION.cff native_runtime.json Dockerfile
+recursive-include licenses *.txt
+recursive-include patches *.patch
+recursive-include scripts *.sh
+recursive-include benchmarks *.csv *.json
+recursive-include tests *.py

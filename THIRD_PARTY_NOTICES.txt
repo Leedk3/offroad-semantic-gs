@@ -1,0 +1,49 @@
+Offroad Semantic GS: third-party boundaries
+=========================================
+
+Original project Python code, tests and documentation are offered under the
+root MIT license. The MIT license does not replace the terms of optional
+dependencies or the source excerpts in the renderer patches.
+
+1. Optional native planar Gaussian renderer and patches
+
+   Upstream: https://github.com/hbb1/diff-surfel-rasterization
+   Revision: e0ed0207b3e0669960cfad70852200a4a5847f61
+   Copyright: Inria and Max Planck Institut fuer Informatik, as stated in the
+   complete upstream notice at licenses/Gaussian-Splatting.txt.
+
+   The files in patches/ modify upstream CUDA source and retain its
+   Gaussian-Splatting research/noncommercial license. They are excluded from
+   the root MIT grant. The optional renderer, its submodules and resulting
+   compiled library retain the upstream terms. See the complete license
+   before installation; do not treat this dependency as MIT or Apache-2.0.
+   No upstream renderer source tree or binary is included in this repository.
+
+   Primary license:
+   https://raw.githubusercontent.com/hbb1/diff-surfel-rasterization/e0ed0207b3e0669960cfad70852200a4a5847f61/LICENSE.md
+
+2. External prediction providers (not distributed)
+
+   Depth Anything 3: source is Apache-2.0; checkpoint terms differ by model.
+   https://github.com/ByteDance-Seed/Depth-Anything-3
+   https://github.com/ByteDance-Seed/Depth-Anything-3#-model-cards
+
+   DINOv3: code and weights are subject to the DINOv3 License.
+   https://github.com/facebookresearch/dinov3/blob/main/LICENSE.md
+
+   These projects are optional upstream ways to prepare input arrays. This
+   repository contains no model code, checkpoints, automatic model download,
+   or license acceptance on behalf of its users.
+
+3. Runtime Python dependencies (not vendored)
+
+   NumPy, SciPy and PyTorch are installed separately and retain their own
+   licenses and notices. This repository does not redistribute their source
+   or binary packages.
+
+4. Datasets, publication figures and historical experiments
+
+   No RELLIS-3D, TartanDrive2, ORAD-3D or Rosario data, raw sensor recordings,
+   dataset-derived imagery, manuscript PDFs, or third-party model weights are
+   included. Example observations are generated procedurally. Numeric
+   benchmark CSVs summarize project experiments and are not dataset samples.

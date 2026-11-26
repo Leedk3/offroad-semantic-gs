@@ -1,0 +1,25 @@
+{
+  "renderer_repository": "https://github.com/hbb1/diff-surfel-rasterization.git",
+  "renderer_commit": "e0ed0207b3e0669960cfad70852200a4a5847f61",
+  "glm_commit": "5c46b9c07008ae65cb81ab79cd677ecc1934b903",
+  "license": "Separate Inria/MPII Gaussian-Splatting research/noncommercial license",
+  "license_file": "licenses/Gaussian-Splatting.txt",
+  "patches": [
+    "patches/2dgs_conditional_center_forward.patch",
+    "patches/2dgs_center_depth_backward_consistency.patch"
+  ],
+  "patched_source_SHA256": {
+    "cuda_rasterizer/forward.cu": "6c2dcf1795a9af86aa8e55eba25f4dc708d2ba3261af76f25d697a4821dd33d8",
+    "cuda_rasterizer/backward.cu": "0014a7afb6aec9bc3b26ec2c4ad8e8f4f63e0dce2a2f209d735009acdbdeefc0"
+  },
+  "compiled_extension_distributed": false,
+  "preprocessing": "Camera-space depth clip1..25; opacity comes from the constructed field; RGB white background, semantic black background.",
+  "camera": "Pinhole with unchanged K and transposed projection corrections+1/W at[2,0],+1/H at[2,1].",
+  "readout": "aux[0]=weighted depth mass; aux[1]=alpha. Normalize once in finalize_render.",
+  "reference_build_environment": {
+    "python": "3.11",
+    "pytorch": "2.8.0",
+    "CUDA": "12.8",
+    "clean_release_CUDA_build_executed": false
+  }
+}
